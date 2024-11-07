@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz TCF Francais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="welcome" id="hidden">
+        <button id="start">
+            start the quiz!
+        </button>
+        <button class="record">
+            your previous record
+        </button>
+    </div>
+    
+    <div class="global" id="shown">
+        <section class="first">
+            <div class="Quiz">
+                Quiz TCF Francais
+            </div>
+            <div class="Balzac">
+                Institut Balzac
+            </div>
+            <div class="logo">
+                <div class="fr">
+                    FR
+                </div>
+                <div class="img">
+                    <img src="Flag-France.png" alt="logo">
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="body">
+            <div class="container_que" >
+                <section class="questions">
+                    <div class="que" id="questions">
+                        
+                    </div>
+                </section>
+            </div>
+            
+            <div class="container_count">
+                <div class="count_que" >
+                    <span id="count">1</span>/20
+                </div>
+            </div>
+            <div class="box_container">
+                <div class="boxes">
+                    <button class="rep" id="rep1">
+                        five
+                    </button>
+                    <button class="rep" id="rep2">
+                        apple
+                    </button>
+                    <button class="rep" id="rep3">
+                        mother
+                    </button>
+                    <button class="rep" id="rep4">
+                        carrot
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="next">
+            <div class="time">
+                <div class="timest">
+                    time left (s) :
+                </div>
+                <div class="timeint">
+                    30
+                </div>
+            </div>
+            <div class="score">
+                <div class="scoretxt">
+                    your score= 
+                </div>
+                <div class="scorenum" id="scrnum">
+                    0 
+                </div>
+            </div>
+            <div class="nextbtn" id="nextbtn">
+                    <button>Next question</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
