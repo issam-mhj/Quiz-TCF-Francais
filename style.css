@@ -1,5 +1,5 @@
 body{
-    background-color: #0A3A46;
+    background-color: #f0f8ff;
 }
 
 .welcome{
@@ -9,17 +9,42 @@ body{
     margin-top: 10%;
 }
 
-.welcome .record{
-    background-color: thistle;
-    border-radius: 40px;
-    padding: 20px;
+.quote{
+
 }
 
+.desc{
+    margin-top: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.welcome .record{
+    background-color: #4da6ff;
+    border-radius: 20px;
+    padding: 20px;
+    color: #001a33;
+    font-weight: bold;
+}
+.welcome .record:hover{
+    background-color: #66c2ff;
+}
 .welcome button{
     padding: 20px;
     /* margin-top: 80px; */
-    border-radius: 40px;
-    background-color: thistle;
+    border-radius: 20px;
+    background-color: #4da6ff;
+    color: #001a33;
+    font-weight: bold;
+}
+
+.welcome button:hover{
+    background-color: #66c2ff;
+}
+
+.header{
+    color: #2b2b73;
+    margin-bottom: 80px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .global{
@@ -32,6 +57,11 @@ body{
     box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px inset;
 }
 
+.intro{
+    text-align: center;
+    padding-top: 20px ;
+}
+
 .first{
     padding-top: 1%;
     font-size: 20px;
@@ -39,6 +69,15 @@ body{
     display: flex;
     justify-content: space-around;
     color: #FFFFFF;
+}
+
+.lScore{
+    display: none;
+    padding: 20px;
+    border: 2px solid black;
+    /* margin-top: 80px; */
+    border-radius: 40px;
+    background-color: #00FFFF;
 }
 
 .logo{
@@ -178,4 +217,26 @@ hr{
     padding: 10px;
     border-radius: 10px;
     color: #F0F0F0;
+}
+
+.scores{
+    text-align: center;
+    font-size: 40px;
+    display: none;
+}
+
+#continue{
+    font-size: 20px;
+    background-color:white;
+    padding: 5px;
+}
+
+#replay{
+    font-size: 20px;
+    background-color:white;
+    padding: 5px;
+}
+
+#continue:hover{
+    background-color: aquamarine;
 }

@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz TCF Francais</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="welcome" id="hidden">
+    <div class="intro" id="intro"> 
+        <h1 class="header" id="header">
+            Bienvenue sur l'application de test de français TCF ® de l'Institut Balzac !
+        </h1>
+        <q class="quote">Testez vos compétences en français en quelques clics.</q>
+        <p class="desc">
+            Notre application interactive est conçue pour évaluer vos compétences en langue française dans le cadre du Test de Connaissance du Français (TCF). Testez vos connaissances, découvrez votre niveau (de A1 à C2) et recevez un rapport détaillé de vos performances. Démarrez dès maintenant pour voir où vous vous situez et identifiez vos axes d'amélioration.
+        </p>
+    </div>
+    <div class="welcome" id="hidden" >
         <button id="start">
             start the quiz!
         </button>
         <button class="record">
             your previous record
         </button>
+        <div class="lScore" id="lScore">
+            your last score = <span id="lastScore"></span>
+        </div>
     </div>
     
     <div class="global" id="shown">
@@ -85,6 +98,14 @@
             <div class="nextbtn" id="nextbtn">
                     <button>Next question</button>
             </div>
+        </div>
+    </div>
+    <div class="scores" id="lastDiv">
+        <p>your score is : <span id="finalSCR"></span></p>
+        <p>your level is : <span id="level" ></span></p>
+        <div>
+            <button id="continue">continue</button>
+            <button id="replay">replay</button>
         </div>
     </div>
     <script src="main.js"></script>

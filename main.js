@@ -160,8 +160,11 @@
             correctOption: "Beau"
         }
     ];
-
-    let currentQuestionIndex = 0; 
+   
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let countInt = 1;
+    let det = 0;
 
     function displayQuestion() {
         const questionElement = document.getElementById("questions");
@@ -175,147 +178,113 @@
         option2.innerText = quiz[currentQuestionIndex].option2;
         option3.innerText = quiz[currentQuestionIndex].option3;
         option4.innerText = quiz[currentQuestionIndex].option4;
+
+        document.getElementById("rep1").style.backgroundColor = "white";
+        document.getElementById("rep2").style.backgroundColor = "white";
+        document.getElementById("rep3").style.backgroundColor = "white";
+        document.getElementById("rep4").style.backgroundColor = "white";
+
+        document.getElementById("nextbtn").style.display = "none";
+        det = 0;
     }
 
-
-    function check(){
-        if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option1){
-            return 1;
-        }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option2 ){
-            return 2;
-        }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option3 ){
-            return 3;
-        }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option4){
-            return 4;
-        }
+    function check() {
+        const correct = quiz[currentQuestionIndex].correctOption;
+        if (correct === quiz[currentQuestionIndex].option1) return 1;
+        if (correct === quiz[currentQuestionIndex].option2) return 2;
+        if (correct === quiz[currentQuestionIndex].option3) return 3;
+        if (correct === quiz[currentQuestionIndex].option4) return 4;
     }
 
-    displayQuestion();
-    let number ;
-    let det = 0;
-    let score=0;
-    const scoreCount = document.getElementById("scrnum");
     const answers = document.querySelectorAll(".rep");
     answers.forEach((answer) => {
-        answer.addEventListener("click",function(){
-            nextButton.style.display = "block";
-            if(answer.innerHTML !== quiz[currentQuestionIndex].correctOption){
-                if (answer.innerHTML === quiz[currentQuestionIndex].option1 && det ===0){
-                    number = 1;
-                    det = 1;
-                    document.getElementById("rep1").style.backgroundColor = "red";
-                    if(check()=== 1){
-                        document.getElementById("rep1").style.backgroundColor = "green";
-                    }else if (check()===2){
-                        document.getElementById("rep2").style.backgroundColor = "green";
-                    }else if(check()===3){
-                        document.getElementById("rep3").style.backgroundColor = "green";
-                    }else{
-                        document.getElementById("rep4").style.backgroundColor = "green";
-                    }
-                }else if (answer.innerHTML === quiz[currentQuestionIndex].option2 && det === 0){
-                    number = 2;
-                    det = 1;
-                    document.getElementById("rep2").style.backgroundColor = "red";
-                    if(check()=== 1){
-                        document.getElementById("rep1").style.backgroundColor = "green";
-                    }else if (check()===2){
-                        document.getElementById("rep2").style.backgroundColor = "green";
-                    }else if(check()===3){
-                        document.getElementById("rep3").style.backgroundColor = "green";
-                    }else{
-                        document.getElementById("rep4").style.backgroundColor = "green";
-                    }
-                }else if (answer.innerHTML === quiz[currentQuestionIndex].option3 && det === 0){
-                    number = 3;
-                    det = 1;
-                    document.getElementById("rep3").style.backgroundColor = "red";
-                    if(check()=== 1){
-                        document.getElementById("rep1").style.backgroundColor = "green";
-                    }else if (check()===2){
-                        document.getElementById("rep2").style.backgroundColor = "green";
-                    }else if(check()===3){
-                        document.getElementById("rep3").style.backgroundColor = "green";
-                    }else{
-                        document.getElementById("rep4").style.backgroundColor = "green";
-                    }
-                }else if (answer.innerHTML === quiz[currentQuestionIndex].option4 && det === 0){
-                    number = 4;
-                    det = 1;
-                    document.getElementById("rep4").style.backgroundColor = "red";
-                    if(check()=== 1){
-                        document.getElementById("rep1").style.backgroundColor = "green";
-                    }else if (check()===2){
-                        document.getElementById("rep2").style.backgroundColor = "green";
-                    }else if(check()===3){
-                        document.getElementById("rep3").style.backgroundColor = "green";
-                    }else{
-                        document.getElementById("rep4").style.backgroundColor = "green";
-                    }
+        answer.addEventListener("click", function () {
+            if (det === 0) {
+                document.getElementById("nextbtn").style.display = "block";
+                if (answer.innerHTML !== quiz[currentQuestionIndex].correctOption) {
+                    answer.style.backgroundColor = "red";
+                    const correctNum = check();
+                    document.getElementById(`rep${correctNum}`).style.backgroundColor = "green";
+                } else {
+                    answer.style.backgroundColor = "green";
+                    score++;
+                    document.getElementById("scrnum").textContent = score;
                 }
-            }else{
-                if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option1 && det ===0){
-                    number = 1;
-                    det = 1;
-                    document.getElementById("rep1").style.backgroundColor = "green";
-                    score= score+1;
-                }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option2 && det ===0){
-                    number = 2;
-                    det = 1;
-                    document.getElementById("rep2").style.backgroundColor = "green";
-                    score= score+1;
-                }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option3 && det ===0){
-                    number = 3;
-                    det = 1;
-                    document.getElementById("rep3").style.backgroundColor = "green";
-                    score= score+1;
-                }else if (quiz[currentQuestionIndex].correctOption === quiz[currentQuestionIndex].option4 && det ===0){
-                    number = 4;
-                    det = 1;
-                    document.getElementById("rep4").style.backgroundColor = "green";
-                    score= score+1;
-                }
+                det = 1;
             }
+        });
     });
-    })
 
-    const count = document.getElementById("count");
-    let countInt=1;
+function countScore(a){
+    let b= a/2;
+    let rslt;
+    if (b<=2){
+        rslt = "A1";
+    }else if (b<=4){
+        rslt = "A2";
+    }else if (b<=6){
+        rslt = "B1";
+    }else if (b<=8){
+        rslt = "B2";
+    }else if (b===9){
+        rslt = "C1";
+    }else{
+            rslt = "C2";
+    }
+    return rslt;
+}
 
-    const nextButton = document.getElementById("nextbtn");
-    nextButton.addEventListener("click", function() {
-        currentQuestionIndex++; 
+const store = window.localStorage;
 
+    document.getElementById("nextbtn").addEventListener("click", function () {
+        currentQuestionIndex++;
         if (currentQuestionIndex < quiz.length) {
-            displayQuestion(); 
-            nextButton.style.display = "none";
-            det = 0;
-            document.getElementById("rep1").style.backgroundColor = "white"
-            document.getElementById("rep2").style.backgroundColor = "white";
-            document.getElementById("rep3").style.backgroundColor = "white";
-            document.getElementById("rep4").style.backgroundColor = "white";
             countInt++;
-            count.textContent=countInt.toString();
-            scoreCount.textContent=score.toString();
-            if (countInt===20){
-                countInt=0;
-            }
-
+            document.getElementById("count").textContent = countInt;
+            displayQuestion();
         } else {
-            alert("Quiz finished!");
-            currentQuestionIndex = 0; 
-            displayQuestion(); 
-            hidden.style.display = "block";
-            shown.style.display = "none";
-            score=0;
+            document.getElementById("shown").style.display = "none";
+            document.getElementById("lastDiv").style.display = "block";
+            const go = document.getElementById("continue");
+            const replay = document.getElementById("replay");
+            let level = document.getElementById("level");
+            let final = document.getElementById("finalSCR");
+            level.textContent = countScore(score);
+            final.textContent = score;
+            store.setItem("lastScore",score);
+            replay.addEventListener("click",function(){
+                document.getElementById("lastDiv").style.display = "none";
+                document.getElementById("shown").style.display = "block";
+                score = 0; 
+                document.getElementById("scrnum").textContent = score;
+                currentQuestionIndex = 0; 
+                countInt = 1;
+                document.getElementById("count").textContent = countInt;
+                displayQuestion();
+                })
+            go.addEventListener("click",function(){
+                document.getElementById("lastDiv").style.display = "none";
+                document.getElementById("hidden").style.display = "block";
+                document.getElementById("intro").style.display = "block";
+                document.getElementById("lScore").style.display = "block";
+                score = 0;
+                document.getElementById("scrnum").textContent = score;
+                currentQuestionIndex = 0;
+                countInt = 1; 
+                let lScore = document.getElementById("lastScore");
+                lScore.textContent = store.getItem("lastScore");
+            })
         }
     });
 
-
-    const start = document.getElementById("start");
-    start.addEventListener("click", function() {
-        const hidden = document.getElementById("hidden");
-        const shown = document.getElementById("shown");
-        hidden.style.display = "none";
-        shown.style.display = "block";
+    document.getElementById("start").addEventListener("click", function () {
+        document.getElementById("hidden").style.display = "none";
+        document.getElementById("intro").style.display = "none";
+        document.getElementById("shown").style.display = "block";
+        score = 0; 
+        document.getElementById("scrnum").textContent = score;
+        currentQuestionIndex = 0; 
+        countInt = 1;
+        document.getElementById("count").textContent = countInt;
+        displayQuestion();
     });
