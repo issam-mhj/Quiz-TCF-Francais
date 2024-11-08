@@ -161,6 +161,18 @@
         }
     ];
    
+
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; 
+        }
+        return array;
+    }
+    
+    shuffleArray(quiz);
+
     let currentQuestionIndex = 0;
     let score = 0;
     let countInt = 1;
@@ -260,13 +272,14 @@ const store = window.localStorage;
                 currentQuestionIndex = 0; 
                 countInt = 1;
                 document.getElementById("count").textContent = countInt;
+                shuffleArray(quiz);
                 displayQuestion();
                 })
             go.addEventListener("click",function(){
                 document.getElementById("lastDiv").style.display = "none";
-                document.getElementById("hidden").style.display = "block";
+                document.getElementById("hidden").style.display = "flex";
                 document.getElementById("intro").style.display = "block";
-                document.getElementById("lScore").style.display = "block";
+                document.getElementById("lScore").style.display = "inline";
                 score = 0;
                 document.getElementById("scrnum").textContent = score;
                 currentQuestionIndex = 0;
@@ -286,5 +299,6 @@ const store = window.localStorage;
         currentQuestionIndex = 0; 
         countInt = 1;
         document.getElementById("count").textContent = countInt;
+        shuffleArray(quiz);
         displayQuestion();
     });

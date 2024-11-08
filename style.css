@@ -1,5 +1,5 @@
 body{
-    background-color: #f0f8ff;
+    background-color: #bfe0fc;
 }
 
 .welcome{
@@ -20,7 +20,7 @@ body{
 
 .welcome .record{
     background-color: #4da6ff;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
     color: #001a33;
     font-weight: bold;
@@ -31,10 +31,11 @@ body{
 .welcome button{
     padding: 20px;
     /* margin-top: 80px; */
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #4da6ff;
     color: #001a33;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .welcome button:hover{
@@ -49,12 +50,13 @@ body{
 
 .global{
     display: none;
-    background-color: #007991;
+    background-color: #005e84;
     width: 60%;
     margin: 5% auto;
     padding: 2%;
+    border-color: #2D5F73;
     border-radius: 80px;
-    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px inset;
+    box-shadow: 4.6px 9.3px 9.3px hsl(0deg 0% 0% / 0.36);
 }
 
 .intro{
@@ -75,9 +77,11 @@ body{
     display: none;
     padding: 20px;
     border: 2px solid black;
+    color: #001a33;
     /* margin-top: 80px; */
-    border-radius: 40px;
-    background-color: #00FFFF;
+    border-radius: 20px;
+    background-color: #4da6ff;
+    font-size: 20px;
 }
 
 .logo{
@@ -172,19 +176,21 @@ hr{
 }
 
 .rep{
-    width: 300px;
-    height: 100px;
+    width: 250px;
+    height: 80px;
     /* margin: 180px; */
-    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 80px;
-    color: #333333;
-    font-size: 30px;
+    color: #2A2A2A;
+    font-size: 26px;
+    font-family: "poppins",sans-serif;
     border-radius: 10px;
-    background-color: #E0E0E0;
+    background-color: #B3E0F2;
+    cursor: pointer;
 }
+
 
 .next{
     display: flex;
@@ -203,8 +209,9 @@ hr{
 
 .time{
     display: flex;
-    background-color: #FF5733;
+    background-color: #FF6F61;
     padding: 10px;
+    color: #2A2A2A;
     border-radius: 10px;
 }
 
@@ -217,6 +224,7 @@ hr{
     padding: 10px;
     border-radius: 10px;
     color: #F0F0F0;
+    cursor: pointer;
 }
 
 .scores{
@@ -239,4 +247,35 @@ hr{
 
 #continue:hover{
     background-color: aquamarine;
+    cursor: pointer;
+}
+
+#replay:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+
+@media (max-width:1080px){
+    .boxes{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width:410px){
+    .rep{
+        width: 150px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px 0px;
+        color: #2A2A2A;
+        font-size: 20px;
+        font-family: "poppins",sans-serif;
+        border-radius: 0px;
+        background-color: #B3E0F2;
+    }
+    
 }
