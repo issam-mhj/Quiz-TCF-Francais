@@ -46,8 +46,6 @@ Quiz TCF Français is an interactive web application designed to test users' Fre
 
 ## Architecture
 
-![Architecture Diagram](https://github.com/user-attachments/assets/721b7fb3-e480-4809-9023-fd48b82b1f8c)
-
 The project is structured with:
 
 - **HTML:** For structuring the web page and its elements.
